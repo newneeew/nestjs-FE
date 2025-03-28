@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    // 기본 컴파일러 옵션
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    // 모듈 해석 옵션
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    // React 관련 옵션
+    "jsx": "react-jsx",
+
+    // 타입 체킹 옵션
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Vite 관련 옵션 (기존 tsconfig.node.json에서 통합)
+    //"composite": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "vite.config.ts",
+    "postcss.config.ts",
+    "tailwind.config.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}
