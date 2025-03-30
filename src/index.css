@@ -1,72 +1,164 @@
 @tailwind base;
+
+@layer base {
+    /* 기본 HTML 요소 스타일 */
+    html {
+        @apply antialiased;
+    }
+
+    body {
+        @apply bg-white text-gray-900;
+    }
+
+    /* 기본 링크 스타일 */
+    a {
+        @apply text-blue-600 hover:text-blue-800;
+    }
+
+    /* 기본 제목 스타일 */
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold text-gray-900;
+    }
+}
+
 @tailwind components;
+
+@layer components {
+    /* 레이아웃 컨테이너 */
+    .container-default {
+        @apply container mx-auto px-4;
+    }
+    
+    .container-responsive {
+        @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    /* 헤더 컴포넌트 */
+    .header-wrapper {
+        @apply bg-gray-800 text-white shadow-lg fixed w-full top-0 z-50;
+    }
+
+    .header-nav {
+        @apply container mx-auto px-4 py-3 flex justify-between items-center;
+    }
+
+    .header-link {
+        @apply hover:text-blue-300 transition-colors duration-200 font-medium;
+    }
+
+    .header-logo {
+        @apply text-xl font-bold;
+    }
+
+    .header-logo-icon {
+        @apply text-blue-400 mr-2;
+    }
+
+    /* 푸터 컴포넌트 */
+    .footer-wrapper {
+        @apply bg-gray-800 text-white shadow-lg fixed w-full bottom-0 z-50;
+    }
+
+    .footer-container {
+        @apply container mx-auto px-4;
+    }
+
+    .footer-content {
+        @apply flex items-center justify-center flex-col space-y-4;
+    }
+
+    .footer-text {
+        @apply text-sm;
+    }
+
+    /* 페이지 레이아웃 */
+    .page-layout {
+        @apply min-h-screen flex flex-col w-full;
+    }
+
+    .page-content {
+        @apply flex-grow container mx-auto px-4 pt-20 pb-24;
+    }
+
+    /* 타이포그래피 */
+    .text-h1 {
+        @apply text-3xl font-bold;
+    }
+
+    .text-h2 {
+        @apply text-2xl font-bold;
+    }
+
+    .text-default {
+        @apply text-base;
+    }
+
+    .text-small {
+        @apply text-sm;
+    }
+
+    /* 컨테이너 */
+    .container-narrow {
+        @apply max-w-md mx-auto;
+    }
+
+    .container-default {
+        @apply max-w-2xl mx-auto;
+    }
+
+    .container-wide {
+        @apply max-w-4xl mx-auto;
+    }
+}
+
 @tailwind utilities;
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@layer utilities {
+    /* 커스텀 유틸리티 클래스 */
+    .text-balance {
+        text-wrap: balance;
+    }
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    /* 스크롤바 스타일링 */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+    /* 텍스트 그라데이션 */
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500;
+    }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+    /* 애니메이션 */
+    .fade-in {
+        @apply transition-opacity duration-300;
+    }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+    .fade-in-enter {
+        @apply opacity-0;
+    }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    .fade-in-enter-active {
+        @apply opacity-100;
+    }
+
+    /* 반응형 유틸리티 */
+    .hide-scrollbar {
+        @apply scrollbar-hide;
+    }
+
+    /* 접근성 */
+    .sr-only {
+        @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    }
+
+    .focus-ring {
+        @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+    }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
